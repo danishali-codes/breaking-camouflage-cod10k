@@ -44,7 +44,7 @@ Two run modes, set with `RUN_MODE` in the config cell:
 - `"full"` reproduces every number in the paper. It takes about 3 GPU-hours on an A100.
 - `"quick"` runs the whole pipeline with 1 seed and 3 epochs, in roughly an hour on a T4. Its numbers are lower than the paper's; use it to check that everything runs.
 
-The results in `results/` are from the full run.
+The results in `results/` are from the full run on an A100. The device line saved in the notebook's first cell says Tesla T4 because that cell was re-run later on a T4 session that loaded the saved results.
 
 ## Reproducibility details
 
