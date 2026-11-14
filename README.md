@@ -13,7 +13,7 @@ This repository holds the code and results for the paper "Breaking Camouflage th
 | CLIP | 400M image and text pairs |
 | DINOv2 | self-supervised on LVD-142M, no labels |
 
-Each family was fine-tuned in three configurations: Base at 224 px, Base at 448 px and Large at 224 px. Large at 448 px was not run. Every configuration used three seeds, and backbone learning rates were chosen on a validation split. The dataset's masks were used to test how much the models rely on the subject and how much on the rest of the image.
+Each family was fine-tuned in three configurations: Base at 224 px, Base at 448 px and Large at 224 px. Large at 448 px was not run. Every configuration used three seeds, and backbone learning rates were chosen on a validation split. The dataset's masks were used to measure how much accuracy remains when the subject, or everything except the subject, is masked out.
 
 ## Results
 
@@ -30,7 +30,7 @@ Main findings:
 
 - The family name alone does not predict accuracy. At Base 224 px, DINOv2 and ConvNeXt are not statistically distinguishable under a paired bootstrap, and both beat the supervised ViT by 6 to 7 points. The four configurations differ in training data, objective, patch size and architecture at once, so these results do not separate the effect of pre-training from the effect of architecture.
 - Resolution helps small subjects most. Training at 448 px adds 5 to 8 points for three of the four families. For subjects covering under 2.1% of the image, the gain is 10.8 to 12.3 points.
-- Much of the predictive information lies outside the subject's appearance. With the subject's pixels filled with flat grey, the models still score 38 to 59%. The grey region keeps the subject's outline, position and size, so this figure is an upper bound on what the habitat alone provides.
+- Much of the predictive information lies outside the subject's appearance. With the subject's pixels filled with flat grey, the models still score 38 to 59%. The grey region keeps the subject's outline, position and size, so this accuracy cannot be attributed to the habitat alone.
 
 ## Running the notebook
 
